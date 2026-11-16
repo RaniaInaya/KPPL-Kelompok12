@@ -1,0 +1,19 @@
+{
+  "name": "kppl-kelompok12-kasirku-mini",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Simulasi kasir dan inventaris untuk eksplorasi Static Code Quality & Maintainability dengan ESLint.",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "report:awal": "node scripts/report.mjs awal",
+    "report:akhir": "node scripts/report.mjs akhir",
+    "compare": "node scripts/compare.mjs"
+  },
+  "devDependencies": {
+    "eslint": "10.15.0"
+  }
+}

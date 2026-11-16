@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="KasirKu Mini: simulasi kasir dan inventaris untuk pengujian kualitas statis JavaScript menggunakan ESLint." />
+  <title>KasirKu Mini | KPPL Kelompok 12</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="module" src="/src/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="/" aria-label="Beranda KasirKu Mini"><span class="logo-mark">K</span><span>KasirKu <b>Mini</b></span></a>
+      <div class="header-meta"><span class="online-dot"></span> Sistem Latihan KPPL <span class="header-divider">·</span> Kelompok 12</div>
+    </div>
+  </header>
+  <main class="main-container">
+    <section class="welcome">
+      <div><p class="eyebrow">STATIC CODE QUALITY & MAINTAINABILITY</p><h1>Dashboard Kasir & Inventaris</h1><p class="lead">Simulasikan pengelolaan stok dan transaksi penjualan. Kualitas kode JavaScript dievaluasi dengan ESLint.</p></div>
+      <button class="button button-outline reset-button" id="resetButton" type="button">↻ Reset data latihan</button>
+    </section>
+    <section class="metrics" aria-label="Ringkasan toko">
+      <article class="metric-card"><span class="metric-icon purple">▦</span><div><p>Total produk</p><strong id="metricProducts">–</strong><small>Jenis produk aktif</small></div></article>
+      <article class="metric-card"><span class="metric-icon orange">!</span><div><p>Stok menipis / habis</p><strong id="metricLowStock">–</strong><small>Sisa stok ≤ 5 unit</small></div></article>
+      <article class="metric-card"><span class="metric-icon blue">◧</span><div><p>Barang di keranjang</p><strong id="metricCart">–</strong><small>Total unit yang dipilih</small></div></article>
+      <article class="metric-card"><span class="metric-icon green">Rp</span><div><p>Total omzet</p><strong id="metricRevenue" class="revenue">–</strong><small>Dari transaksi tersimpan</small></div></article>
+    </section>
+    <section class="workspace">
+      <div class="catalog-panel panel">
+        <div class="section-heading"><div><p class="eyebrow">KATALOG PRODUK</p><h2>Kelola & pilih barang</h2></div><span id="resultCount" class="result-count"></span></div>
+        <div class="filters"><label class="sr-only" for="searchInput">Cari produk</label><input id="searchInput" type="search" placeholder="⌕  Cari nama produk..." autocomplete="off" /><label class="sr-only" for="categorySelect">Filter kategori</label><select id="categorySelect"><option>Semua</option><option>Minuman</option><option>Makanan</option></select></div>
+        <div id="productGrid" class="product-grid" aria-live="polite"></div>
+      </div>
+      <aside class="right-column">
+        <section class="panel checkout-panel"><div class="section-heading"><div><p class="eyebrow">TRANSAKSI</p><h2>Keranjang belanja</h2></div><span class="cart-tag">POS</span></div><div id="cartItems" class="cart-list" aria-live="polite"></div><label class="member-option"><input type="checkbox" id="memberCheckbox" /><span><strong>Diskon member 10%</strong><small>Berlaku untuk total belanja</small></span></label><div class="summary-row"><span>Subtotal</span><b id="subtotal">–</b></div><div class="summary-row discount"><span>Diskon</span><b id="discount">–</b></div><div class="summary-row grand-total"><span>Total bayar</span><strong id="grandTotal">–</strong></div><button class="button button-primary checkout-button" id="checkoutButton">Selesaikan Transaksi →</button><small class="helper">Transaksi memperbarui stok dan tersimpan di browser.</small></section>
+        <section class="panel history-panel"><div class="section-heading"><div><p class="eyebrow">RIWAYAT</p><h2>Transaksi terakhir</h2></div></div><div id="historyList"></div></section>
+      </aside>
+    </section>
+    <footer><p>KasirKu Mini • Proyek latihan KPPL Kelompok 12 • JavaScript + ESLint</p><p>Data disimpan secara lokal pada browser (localStorage).</p></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
